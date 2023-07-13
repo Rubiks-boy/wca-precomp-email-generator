@@ -1,3 +1,5 @@
+import { Container, CssBaseline, Typography } from "@mui/material";
+import { fontSize } from "@mui/system";
 import { AccessTokenProvider } from "./AccessTokenProvider";
 import "./App.css";
 import { EmailComposer } from "./EmailComposer";
@@ -5,10 +7,17 @@ import { EmailComposer } from "./EmailComposer";
 function App() {
   return (
     <AccessTokenProvider>
-      <div>
-        <h1>Vite + React</h1>
+      <CssBaseline />
+      <Container sx={{ mt: 3 }}>
+        <Typography
+          variant="h1"
+          component="div"
+          sx={{ flexGrow: 1, fontSize: "2rem" }}
+        >
+          WCA pre-competition email generator
+        </Typography>
         <EmailComposer />
-      </div>
+      </Container>
     </AccessTokenProvider>
   );
 }

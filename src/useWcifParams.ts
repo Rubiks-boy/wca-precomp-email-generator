@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { useAccessToken } from "./AccessTokenProvider";
 import { Competition } from "@wca/helpers";
-import { fetchWcif } from "./wcaApi";
 
 const formatTime = (date?: string) => {
   return new Date(date ?? 0).toLocaleTimeString("en-GB", {
@@ -10,34 +7,9 @@ const formatTime = (date?: string) => {
   });
 };
 
-const useFetchWcif = (competitionId: string | null): Competition | null => {
-  const accessToken = useAccessToken();
-  const [competition, setCompetition] = useState<Competition | null>(null);
-
-  useEffect(() => {
-    if (!accessToken || !competitionId) {
-      return;
-    }
-
-    const fetchManageableComps = async () => {
-      const comp = await fetchWcif(competitionId, accessToken);
-
-      if (comp) {
-        setCompetition(comp);
-      }
-    };
-
-    fetchManageableComps();
-  }, [competitionId, accessToken]);
-
-  return competition;
-};
-
 export const useWcifParams = (
-  selectedCompId: string | null
+  wcif: Competition | null
 ): Record<string, string> => {
-  const wcif = useFetchWcif(selectedCompId);
-
   if (!wcif) {
     return {};
   }

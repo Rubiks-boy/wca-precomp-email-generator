@@ -1,7 +1,8 @@
-import React from "react";
+import { Link, Button, Grid } from "@mui/material";
 
-type EmailParams = {
+export type EmailParams = {
   to: string;
+  cc: string;
   bcc: string;
   su: string;
   body: string;
@@ -13,11 +14,15 @@ export const EmailLink = ({ emailParams }: { emailParams: EmailParams }) => {
     .join("&");
   const link = `https://mail.google.com/mail/?view=cm&${queryParams}`;
 
+  const openLink = () => {
+    window.open(link, "_blank");
+  };
+
   return (
-    <div className="EmailLink">
-      <a href={link} target="_blank">
-        Test
-      </a>
-    </div>
+    <Grid item xs={12}>
+      <Button variant="contained" onClick={openLink}>
+        Compose email in gmail
+      </Button>
+    </Grid>
   );
 };

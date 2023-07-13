@@ -1,3 +1,4 @@
+import { Competition } from "@wca/helpers";
 import { useEffect, useState } from "react";
 import { useAccessToken } from "./AccessTokenProvider";
 import {

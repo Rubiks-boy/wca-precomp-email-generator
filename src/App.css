@@ -1,5 +1,7 @@
 .Output iframe {
   width: 100%;
-  max-width: 750px;
   height: 50vh;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding-inline: 0.5em;
 }

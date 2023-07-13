@@ -3,6 +3,8 @@ import { WCA_ORIGIN } from "./auth";
 export type ManageableCompetition = {
   id: string;
   name: string;
+  start_date: string;
+  delegates: Array<{ email: string }>;
 };
 
 export const wcaFetch = (

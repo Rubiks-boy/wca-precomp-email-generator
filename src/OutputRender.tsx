@@ -1,20 +1,13 @@
+import { Box, Grid } from "@mui/material";
 import { useEffect } from "react";
-import { EmailLink } from "./EmailLink";
 
 type Props = {
   template: string;
-  params: Record<string, string>;
+  templateParams: Record<string, string>;
 };
 
-export const Outputs = ({ template, params }: Props) => {
-  const emailParams = {
-    to: "test@example.com",
-    bcc: "bcc@example.com",
-    su: "subject",
-    body: "body",
-  };
-
-  const withParamsFilledIn = Object.entries(params).reduce(
+export const OutputRender = ({ template, templateParams }: Props) => {
+  const withParamsFilledIn = Object.entries(templateParams).reduce(
     (template, param) => template.replaceAll(`{{${param[0]}}}`, param[1]),
     template
   );
@@ -30,9 +23,10 @@ export const Outputs = ({ template, params }: Props) => {
   }, [htmlContent]);
 
   return (
-    <div className="Output">
-      <iframe />
-      <EmailLink emailParams={emailParams} />
-    </div>
+    <Grid item xs={12}>
+      <div className="Output">
+        <iframe />
+      </div>
+    </Grid>
   );
 };
