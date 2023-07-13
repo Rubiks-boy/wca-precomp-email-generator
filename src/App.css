@@ -1,7 +1,19 @@
-.Output iframe {
+.OutputRender iframe {
   width: 100%;
-  height: 50vh;
+  height: 575px;
+  border: none;
+}
+
+.OutputRender-frameContainer {
   border: 1px solid rgba(0, 0, 0, 0.23);
   border-radius: 4px;
-  padding-inline: 0.5em;
+  padding: 12.5px 14px !important;
+}
+
+.OutputRender-frameContainer:hover {
+  border-color: rgba(0, 0, 0, 0.87);
+}
+
+.OutputRender textarea {
+  font-family: "Courier New", Courier, monospace;
 }

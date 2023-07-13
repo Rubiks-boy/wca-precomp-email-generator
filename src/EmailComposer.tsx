@@ -1,7 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import { Competition } from "@wca/helpers";
 import { useEffect, useState } from "react";
-import { BasicCheckbox } from "./BasicCheckbox";
+import { BasicToggleInput } from "./BasicToggleInput";
 import { BasicInput } from "./BasicInput";
 import { ChooseCompetition } from "./ChooseCompetition";
 import { EmailLink, EmailParams } from "./EmailLink";
@@ -58,13 +58,14 @@ const makeEmailParams = ({
 };
 
 export const EmailComposer = () => {
-  const [template, setTemplate] = useState<string>("");
+  const [template, setTemplate] = useState<[string, string]>(["", ""]);
   const [organizerName, setOrganizerName] = useState<string>("");
   const [organizerEmail, setOrganizerEmail] = useState<string>("");
   const [sponsorTab, setSponsorTab] = useState<string>("");
   const [parkingTab, setParkingTab] = useState<string>("");
   const [selectedCompId, setSelectedCompId] = useState<string>("");
   const [isDryrun, setIsDryrun] = useState<boolean>(true);
+  const [allowEditing, setAllowEditing] = useState<boolean>(false);
   const [hasVending, setHasVending] = useState<boolean>(true);
 
   const manageableComps = useManageableComps();
@@ -84,11 +85,13 @@ export const EmailComposer = () => {
   };
 
   useEffect(() => {
-    fetch("template.html")
-      .then((res) => res.text())
+    Promise.all([
+      fetch("template.html").then((res) => res.text()),
+      fetch("boilerplate.html").then((res) => res.text()),
+    ])
       .then(setTemplate)
       .catch(() => {
-        setTemplate("Couldn't render the email :(");
+        setTemplate(["", "Couldn't render the email :("]);
       });
   }, []);
 
@@ -121,7 +124,7 @@ export const EmailComposer = () => {
         value={parkingTab}
         setValue={setParkingTab}
       />
-      <BasicCheckbox
+      <BasicToggleInput
         label="Comp has vending"
         checked={hasVending}
         setChecked={setHasVending}
@@ -145,13 +148,24 @@ export const EmailComposer = () => {
   });
 
   const outputs = (
-    <Grid container spacing={2}>
-      <OutputRender template={template} templateParams={templateParams} />
+    <Grid container spacing={2} sx={{ mb: 3 }}>
+      <OutputRender
+        template={template[0]}
+        boilerplate={template[1]}
+        templateParams={templateParams}
+        allowEditing={allowEditing}
+      />
       <EmailLink emailParams={emailParams} />
-      <BasicCheckbox
+      <BasicToggleInput
         label="Send test email"
         checked={isDryrun}
         setChecked={setIsDryrun}
+      />
+      <BasicToggleInput
+        label="Edit email template"
+        checked={allowEditing}
+        setChecked={setAllowEditing}
+        type="switch"
       />
     </Grid>
   );
