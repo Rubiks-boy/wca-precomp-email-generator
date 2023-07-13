@@ -53,7 +53,7 @@ const makeEmailParams = ({
     cc: delegateEmails.join(","),
     bcc: dryRun ? "" : competitorEmails.join(","),
     su: `[${selectedComp.name}] See you this ${dayOfWeek}!`,
-    body: "Copy the email rendering here.",
+    body: "Select all and copy the email rendering in the other tab. Then, paste it here.",
   };
 };
 
