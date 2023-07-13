@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import { Competition } from "@wca/helpers";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BasicToggleInput } from "./BasicToggleInput";
 import { BasicInput } from "./BasicInput";
 import { ChooseCompetition } from "./ChooseCompetition";
@@ -67,6 +67,7 @@ export const EmailComposer = () => {
   const [isDryrun, setIsDryrun] = useState<boolean>(true);
   const [allowEditing, setAllowEditing] = useState<boolean>(false);
   const [hasVending, setHasVending] = useState<boolean>(true);
+  const shouldRenderOutput = useRef<boolean>(false);
 
   const manageableComps = useManageableComps();
   const wcif = useFetchWcif(selectedCompId);
@@ -132,13 +133,16 @@ export const EmailComposer = () => {
     </Grid>
   );
 
-  const hasAllInfo =
+  if (
     !!selectedCompId &&
     !!organizerName &&
     !!organizerEmail &&
     !!sponsorTab &&
     !!parkingTab &&
-    !!template;
+    !!template
+  ) {
+    shouldRenderOutput.current = true;
+  }
 
   const emailParams = makeEmailParams({
     selectedComp,
@@ -173,7 +177,7 @@ export const EmailComposer = () => {
   return (
     <Box sx={{ mt: 3 }}>
       <Box>{inputForm}</Box>
-      <Box sx={{ mt: 3 }}>{hasAllInfo && outputs}</Box>
+      <Box sx={{ mt: 3 }}>{shouldRenderOutput.current && outputs}</Box>
     </Box>
   );
 };
