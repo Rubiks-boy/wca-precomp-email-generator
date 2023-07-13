@@ -52,7 +52,7 @@ const makeEmailParams = ({
     to: organizerEmail,
     cc: delegateEmails.join(","),
     bcc: dryRun ? "" : competitorEmails.join(","),
-    su: `${dryRun ? "[TEST]" : ""}[${
+    su: `${dryRun ? "[Test]" : ""}[${
       selectedComp.name
     }] See you this ${dayOfWeek}!`,
     body: "Select all and copy the email rendering in the other tab. Then, paste it here.",
