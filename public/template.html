@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[{{COMP_NAME}}] See you this {{DAY_OF_WEEK}}!</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      h2,
+      ul,
+      li,
+      p {
+        margin: 0;
+      }
+
+      main {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.4em;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        font-weight: normal;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+      }
+
+      section {
+        margin: 1rem 0;
+      }
+
+      ul {
+        padding-left: 1.8em;
+      }
+
+      p,
+      li {
+        /* margin: 0.5rem 0; */
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <p>Hello competitors!</p>
+      </section>
+
+      <section>
+        <p>
+          By receiving this, you’re all set to compete at {{COMP_NAME}} on
+          Saturday! We’re super excited to meet you, but in the meantime, here’s
+          some information you may want to know before the event.
+        </p>
+      </section>
+
+      <section>
+        <h2>What we need from you</h2>
+        <ul>
+          <li>
+            Review the
+            <a
+              href="https://www.worldcubeassociation.org/competitions/{{COMPETITION_ID}}#{{PARKING_TAB}}"
+              >parking information</a
+            >
+          </li>
+          <li>
+            Arrive between {{TIME_CHECKIN_BEGINS}} and
+            {{TIME_OF_COMPETITOR_TUTORIAL}}
+          </li>
+          <li>
+            Pick up your nametag and personalized schedule as you’re walking in.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>First time competitor?</h2>
+        <p>
+          Welcome to the World Cube Association! Make sure to check out the
+          competitor tutorial at {{TIME_OF_COMPETITOR_TUTORIAL}} and watch
+          <a href="https://www.youtube.com/watch?v=dPL3eV-A0ww" target="_blank"
+            >this video</a
+          >
+          when you get a couple minutes. We have answers to a lot of FAQs
+          <a href="https://www.pnwcubing.com/for-parents.html" target="_blank"
+            >here</a
+          >, but feel free to ask us anything throughout the competition!
+        </p>
+      </section>
+
+      <section>
+        <h2>Helpful links</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.worldcubeassociation.org/competitions/{{COMPETITION_ID}}#general-info"
+              target="_blank"
+              >Competition website</a
+            >
+          </li>
+          <li>
+            <a href="{{GOOGLE_MAPS_LINK}}" target="_blank"
+              >Venue on Google Maps</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=dPL3eV-A0ww"
+              target="_blank"
+              >WCA competitor tutorial</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.worldcubeassociation.org/competitions/{{COMPETITION_ID}}#competition-schedule"
+              target="_blank"
+              >Schedule</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.competitiongroups.com/competitions/{{COMPETITION_ID}}"
+              target="_blank"
+              >Group assignments</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://live.worldcubeassociation.org/link/competitions/{{COMPETITION_ID}}"
+              target="_blank"
+              >Live results</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Check-in</h2>
+        <p>
+          Please plan to arrive at {{TIME_CHECKIN_BEGINS}} for check-in and be
+          ready to compete up to 20 minutes before the
+          <a
+            href="https://www.worldcubeassociation.org/competitions/{{COMPETITION_ID}}#competition-schedule"
+            target="_blank"
+            >scheduled time</a
+          >
+          for any event you’re competing in.
+        </p>
+      </section>
+
+      <section>
+        <h2>Schedule</h2>
+        <p>
+          To help things run smoothly, we split up each round into multiple
+          smaller groups. When you arrive, you’ll receive a personalized
+          schedule with specifics on which small groups you’ve been assigned to.
+          You’ve also been assigned to judge other competitors’ solves for 1
+          other group for each event you’re competing in. We’ll review how this
+          all works at the competitor tutorial at
+          {{TIME_OF_COMPETITOR_TUTORIAL}}.
+        </p>
+
+        <p>
+          We appreciate your cooperation by arriving on-time for all of your
+          competing and judging assignments.
+        </p>
+      </section>
+
+      <section>
+        <h2>Prizes & Merch</h2>
+        <p>
+          TheCubicle has graciously sponsored
+          <a
+            href="https://www.worldcubeassociation.org/competitions/{{COMPETITION_ID}}#{{SPONSOR_TAB}}"
+            target="_blank"
+            >gift cards</a
+          >
+          for everyone who podiums! Make sure to check them out at
+          <a href="https://www.thecubicle.com/" target="_blank"
+            >TheCubicle.com</a
+          >.
+        </p>
+
+        <p>
+          We will also have a small booth vending competition and PNW merch!
+        </p>
+      </section>
+
+      <section>
+        <p>
+          Once again, we’re super excited to see you this weekend. Please feel
+          free to reply to this message with any further questions or concerns.
+        </p>
+      </section>
+
+      <section>
+        <p>- {{ORGANIZER_NAME}}</p>
+        <p>{{COMP_NAME}} team</p>
+      </section>
+    </main>
+  </body>
+</html>
