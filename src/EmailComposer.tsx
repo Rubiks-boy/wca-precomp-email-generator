@@ -65,6 +65,7 @@ export const EmailComposer = () => {
   const [parkingTab, setParkingTab] = useState<string>("");
   const [selectedCompId, setSelectedCompId] = useState<string>("");
   const [isDryrun, setIsDryrun] = useState<boolean>(true);
+  const [hasVending, setHasVending] = useState<boolean>(true);
 
   const manageableComps = useManageableComps();
   const wcif = useFetchWcif(selectedCompId);
@@ -77,6 +78,9 @@ export const EmailComposer = () => {
     PARKING_TAB: parkingTab.split("#")[1] ?? "",
     SPONSOR_TAB: sponsorTab.split("#")[1] ?? "",
     ORGANIZER_NAME: organizerName,
+    VENDING_SENTENCE: hasVending
+      ? "We will also have a small booth vending competition and PNW merch!"
+      : "",
   };
 
   useEffect(() => {
@@ -116,6 +120,11 @@ export const EmailComposer = () => {
         placeholder="https://worldcubeassociation.org/competitions/..."
         value={parkingTab}
         setValue={setParkingTab}
+      />
+      <BasicCheckbox
+        label="Comp has vending"
+        checked={hasVending}
+        setChecked={setHasVending}
       />
     </Grid>
   );
