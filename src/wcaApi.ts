@@ -1,3 +1,4 @@
+import { Competition } from "@wca/helpers";
 import { WCA_ORIGIN } from "./auth";
 
 export type ManageableCompetition = {
@@ -41,6 +42,6 @@ export const fetchUpcomingManageableCompetitions = (
 export const fetchWcif = (
   competitionId: string,
   wcaAccessToken: string
-): Promise<Wcif> => {
+): Promise<Competition> => {
   return wcaFetch(`/competitions/${competitionId}/wcif`, wcaAccessToken);
 };
