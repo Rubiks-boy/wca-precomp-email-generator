@@ -1,4 +1,4 @@
-import { Box, Checkbox, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { Competition } from "@wca/helpers";
 import { useEffect, useState } from "react";
 import { BasicCheckbox } from "./BasicCheckbox";

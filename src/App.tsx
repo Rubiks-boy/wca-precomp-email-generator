@@ -1,5 +1,4 @@
 import { Container, CssBaseline, Typography } from "@mui/material";
-import { fontSize } from "@mui/system";
 import { AccessTokenProvider } from "./AccessTokenProvider";
 import "./App.css";
 import { EmailComposer } from "./EmailComposer";
