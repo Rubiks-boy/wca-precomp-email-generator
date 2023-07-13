@@ -8,7 +8,13 @@ export type EmailParams = {
   body: string;
 };
 
-export const EmailLink = ({ emailParams }: { emailParams: EmailParams }) => {
+export const EmailLink = ({
+  emailParams,
+  dryRun,
+}: {
+  emailParams: EmailParams;
+  dryRun: boolean;
+}) => {
   const queryParams = Object.entries(emailParams)
     .map(([k, v]) => `${k}=${v}`)
     .join("&");
@@ -21,7 +27,7 @@ export const EmailLink = ({ emailParams }: { emailParams: EmailParams }) => {
   return (
     <Grid item xs={12}>
       <Button variant="contained" onClick={openLink}>
-        Compose email in gmail
+        Compose {dryRun ? "test" : ""} email in gmail
       </Button>
     </Grid>
   );

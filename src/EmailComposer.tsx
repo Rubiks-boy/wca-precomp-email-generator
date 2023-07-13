@@ -161,7 +161,7 @@ export const EmailComposer = () => {
         templateParams={templateParams}
         allowEditing={allowEditing}
       />
-      <EmailLink emailParams={emailParams} />
+      <EmailLink emailParams={emailParams} dryRun={isDryrun} />
       <BasicToggleInput
         label="Send test email"
         checked={isDryrun}
