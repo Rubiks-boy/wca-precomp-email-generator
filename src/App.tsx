@@ -8,7 +8,7 @@ function App() {
   return (
     <AccessTokenProvider>
       <CssBaseline />
-      <Container sx={{ mt: 3 }}>
+      <Container sx={{ pt: 3 }}>
         <Typography
           variant="h1"
           component="div"
